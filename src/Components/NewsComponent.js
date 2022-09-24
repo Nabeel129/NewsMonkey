@@ -68,8 +68,8 @@ export class NewsComponent extends Component {
 
     fetchMoreData = async () => {
         this.props.setProgress(10);
+        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
         this.setState({ page: this.state.page + 1 });
-        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         let data = await fetch(url);
         this.props.setProgress(40);
         let parsedData = await data.json();
@@ -86,7 +86,7 @@ export class NewsComponent extends Component {
     render() {
         return (
             <>
-                <div className="container my-2">
+                <div className="container my-2" >
                     <h1 className='text-center my-4'>NewsMonkey - Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h1>
                     {this.state.loading && <Spinner />}
                     {/* This line was added once we don't want our previous articles to be visible at the time of loading new articles */}
