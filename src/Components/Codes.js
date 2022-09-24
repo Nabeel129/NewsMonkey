@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 // import { Link } from "react-router-dom";
 
-export class Codes extends Component {
-  getCountry() {
+const Codes = () => {
+
+  const getCountry = () => {
     let country = [
       "ae",
       "ar",
@@ -313,17 +314,16 @@ export class Codes extends Component {
       }
     }
   }
-  render() {
-    return (
-      <div className="dropdown">
-        <button className="btn btn-primary dropdown-toggle" onClick={this.getCountry} type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Countries List
-        </button>
-        <ul className="dropdown-menu dropdown-menu-light" id='codes'>
-        </ul>
-      </div>
-    )
-  }
+
+  return (
+    <div className="dropdown">
+      <button className="btn btn-primary dropdown-toggle" onClick={getCountry} type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Countries List
+      </button>
+      <ul className="dropdown-menu dropdown-menu-light" id='codes'>
+      </ul>
+    </div>
+  )
 }
 
 export default Codes
